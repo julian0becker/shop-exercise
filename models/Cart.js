@@ -1,7 +1,7 @@
 const cart = {
   "5cf502eddbe9a6104529cc88": {
     _id: "5cf502eddbe9a6104529cc88",
-    name: "Chips",
+    name: "Chocolate",
     description: "Commodi ipsa officia qui numquam quibusdam excepturi.",
     imageurl: "http://lorempixel.com/640/480/abstract",
     price: 909
@@ -11,13 +11,28 @@ const cart = {
     name: "Chips",
     description: "Commodi ipsa officia qui numquam quibusdam excepturi.",
     imageurl: "http://lorempixel.com/640/480/abstract",
-    price: 909
+    price: 456
   }
 };
 
 class Cart {
   constructor() {
     this.items = {};
+  }
+  get totalQty() {
+    let qty = 0;
+    for (let item in this.items) {
+      qty += this.items[item].qty;
+    }
+    return qty;
+  }
+
+  get totalPrice() {
+    let price = 0;
+    for (let item in this.items) {
+      price += this.items[item].price;
+    }
+    return price;
   }
 
   add(product) {
@@ -48,18 +63,13 @@ class Cart {
 }
 
 const shoppingCart = new Cart();
-console.log(shoppingCart);
+// console.log(shoppingCart);
 shoppingCart.add(cart["5cf502eddbe9a6104529cc88"]);
+// console.log(shoppingCart);
+shoppingCart.add(cart["5cf502eddbsdfasdf29cc88"]);
+shoppingCart.add(cart["5cf502eddbsdfasdf29cc88"]);
+// shoppingCart.add(cart["5cf502eddbsdfasdf29cc88"]);
 console.log(shoppingCart);
-shoppingCart.add(cart["5cf502eddbe9a6104529cc88"]);
-shoppingCart.add(cart["5cf502eddbe9a6104529cc88"]);
-console.log(shoppingCart);
-shoppingCart.add(cart["5cf502eddbe9a6104529cc88"]);
-console.log(shoppingCart);
-shoppingCart.remove(cart["5cf502eddbe9a6104529cc88"]);
-console.log(shoppingCart);
-shoppingCart.remove(cart["5cf502eddbe9a6104529cc88"]);
-shoppingCart.remove(cart["5cf502eddbe9a6104529cc88"]);
-shoppingCart.remove(cart["5cf502eddbe9a6104529cc88"]);
-shoppingCart.remove(cart["5cf502eddbe9a6104529cc88"]);
-console.log(shoppingCart);
+
+console.log(shoppingCart.totalQty);
+console.log(shoppingCart.totalPrice);
