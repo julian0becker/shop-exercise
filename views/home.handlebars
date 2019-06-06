@@ -1,0 +1,10 @@
+<h1>Products</h1>
+<div class="product">
+    {{#each products}}
+    <h3> {{name}}</h3>
+    <img src={{imgURL}} />
+    <p>{{description}}</p>
+    <p>{{price}}€</p>
+    <button>Add {{name}} to Cart</button>
+    {{/each}}
+</div>

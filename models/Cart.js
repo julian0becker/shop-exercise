@@ -1,23 +1,11 @@
-const cart = {
-  "5cf502eddbe9a6104529cc88": {
-    _id: "5cf502eddbe9a6104529cc88",
-    name: "Chocolate",
-    description: "Commodi ipsa officia qui numquam quibusdam excepturi.",
-    imageurl: "http://lorempixel.com/640/480/abstract",
-    price: 909
-  },
-  "5cf502eddbsdfasdf29cc88": {
-    _id: "5cf502eddbsdfasdf29cc88",
-    name: "Chips",
-    description: "Commodi ipsa officia qui numquam quibusdam excepturi.",
-    imageurl: "http://lorempixel.com/640/480/abstract",
-    price: 456
-  }
-};
-
-class Cart {
-  constructor() {
-    this.items = {};
+module.exports = class Cart {
+  constructor(cart) {
+    console.log("constructor", cart);
+    if (cart) {
+      this.items = cart.items;
+    } else {
+      this.items = {};
+    }
   }
   get totalQty() {
     let qty = 0;
@@ -60,16 +48,4 @@ class Cart {
   removeAll() {
     this.items = {};
   }
-}
-
-const shoppingCart = new Cart();
-// console.log(shoppingCart);
-shoppingCart.add(cart["5cf502eddbe9a6104529cc88"]);
-// console.log(shoppingCart);
-shoppingCart.add(cart["5cf502eddbsdfasdf29cc88"]);
-shoppingCart.add(cart["5cf502eddbsdfasdf29cc88"]);
-// shoppingCart.add(cart["5cf502eddbsdfasdf29cc88"]);
-console.log(shoppingCart);
-
-console.log(shoppingCart.totalQty);
-console.log(shoppingCart.totalPrice);
+};
