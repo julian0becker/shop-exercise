@@ -14,7 +14,7 @@ const hbs = expressHbs.create({
   // Specify helpers which are only registered on this instance.
   helpers: {
     foo: function() {
-      return "FOO!";
+      console.log("fooo");
     },
     bar: function() {
       return "BAR!";

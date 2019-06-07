@@ -1,6 +1,5 @@
 module.exports = class Cart {
   constructor(cart) {
-    console.log("constructor", cart);
     if (cart) {
       this.items = cart.items;
     } else {
